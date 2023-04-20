@@ -1,0 +1,100 @@
+
+.nav-item{
+    letter-spacing : .2em;
+    font-size : 14px;
+    text-transform : uppercase;
+}
+.dropdown-item{
+    letter-spacing : .2em;
+    font-size : 14px;
+    text-transform : uppercase;
+}
+.my_footer{
+    background-color : #0080ff;
+    height : 100px;
+    text-transform : lowercase;
+}
+.my_footer p{
+    padding-top : 40px;
+    font-size : 14px;
+    color : white;
+}
+.my_row_class{
+    padding-top : 15px;
+}
+.my_row_class .mx_auto{
+    color : #000;
+    font-size : 12px;
+}
+.my_image{
+    width : 100%;
+    height : auto;
+}
+.my_title{
+    font-size : 16px;
+    text-transform : uppercase;
+    letter-spacing : .2em;
+}
+.my_image_padding{
+    padding : 5px;
+}
+.about{
+    font-family: 'Inconsolata', monospace;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+.card-body{
+    font-size : 14px;
+    text-transform : uppercase;
+    letter-spacing : .2em;
+}
+.card-title{
+    font-size : 14px;
+    text-transform : uppercase;
+    letter-spacing : .2em;
+}
+.card-text{
+    font-size : 14px;
+    text-transform : uppercase;
+    letter-spacing : .2em;
+}
+.product-name {
+  font-size: 24px;
+  color: #333;
+  text-transform : uppercase;
+}
+
+.product-price {
+  font-size: 18px;
+  letter-spacing : .1em;
+  color: #f00;
+}
+
+.product-description {
+  font-size: 16px;
+  color: #777;
+}
+.my_search_text{
+    padding-top : 20px;
+}
+.my_custom_table{
+    min-width : 400px;
+    font-size : 14px;
+}
+.my_custom_thead{
+    font-weight : normal;
+    text-transform : uppercase;
+    letter-spacing : .2em;
+    background-color : #f8f9fa !important;
+}
+.custom_a{
+    text-decoration : none;
+}
+.custom_symbol{
+    text-decoration : none;
+    color : red;
+}
+.my_custom_button{
+    margin-top : 5px;
+}

@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+    {% if category %}
+        {{category.description | truncatewords:150}}
+    {% else %}
+        This is our categories
+    {% endif %}
+{% endblock %}
+
+{% block title %}
+    {% if category %}
+        {{category.name}}-Cartopia
+    {% else %}
+        Category
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    {% if category %}
+        <div>
+            <div class="row my_row_class">
+                <div class="mx_auto">
+                    <p><a href="{% url 'ecommerceapp:AllCategories' %}">our products</a> </p>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    {% if category %}
+        <div class="mx_auto">
+            <img class="my_image" src="{{category.image.url}}" alt="{{category.name}}" height="700" width="1000">
+        </div><br>
+        <div>
+            <h3 class="text-center my_title">{{category.name}}</h3>
+            <p class="text-justify">{{category.description}}</p>
+        </div>
+    {% else %}
+        <div>
+            <img class="my_image my_image_padding" src="{% static 'image/banner2.png' %}" alt="our products" width="1300px" height="500px">
+        </div><br>
+        <div><br>
+            <h3 class="text-center"><u>our collections</u></h3><br>
+            <p class="text-justify about"><b>Cartopia</b> is your one-stop destination for all your fashion needs. Established in 2023,
+                                    we offer a vast collection of top-quality fashion products that cater to every style and taste.
+                                    Our website is designed to provide a seamless shopping experience, with an easy-to-use interface that allows
+                                    you to browse through our extensive collection of fashion items.
+                                    At Cartopia, we understand the importance of quality and genuineness when it comes to fashion products.
+                                    That's why we ensure that all our products are made from the finest materials and are sourced
+                                    from reputable brands and manufacturers. Our team of experts carefully curates each
+                                    item to ensure that you get only the best and most authentic products.
+                                    Whether you're looking for trendy clothing, stylish accessories, or the latest footwear,
+                                    you can trust Cartopia to deliver. We offer a wide range of products that cater to
+                                    different budgets and styles, so you're sure to find something that suits your needs.
+                So why wait?<br><br> <b>Explore our website today and discover the best in fashion with Cartopia!</b>
+            </p>
+        </div><br>
+    {% endif %}
+
+
+<style>
+.card {
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.card-title {
+    font-size : 14px;
+    text-transform : uppercase;
+    letter-spacing : .1em;
+}
+
+.card-text {
+  font-size: 1rem;
+  margin-top: auto;
+}
+</style>
+
+
+
+
+<div class="row">
+    {% for i in products.object_list %}
+        <div class="col-md-3">
+            <div class="card mb-4" style="height: 20rem;">
+                <a href="{{ i.get_url }}"><img class="card-img-top" src="{{ i.image.url }}" alt="{{ i.name }}" height="200px"></a>
+                <div class="card-body">
+                    <h6 class="card-title">{{ i.name }}</h6>
+                    <h6>Stocks Left : {{i.stock}} Nos</h6>
+                    <p class="card-text"><b>₹{{ i.price }}</b></p>
+                </div>
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:4 %}
+</div>
+<div class="row">
+        {% endif %}
+    {% endfor %}
+</div>
+<div class="mx-auto">
+    {% if products.paginator.num_pages %}
+        <hr>
+        <div class="text-center">
+            {% for pg in products.paginator.page_range %}
+                <a href="?page={{pg}}" class="btn btn-light btn-sm {% if products.number == pg %} active {%endif%}">{{pg}}</a>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div><br>
+{% endblock %}
