@@ -9,16 +9,6 @@
     font-size : 14px;
     text-transform : uppercase;
 }
-.my_footer{
-    background-color : #0080ff;
-    height : 100px;
-    text-transform : lowercase;
-}
-.my_footer p{
-    padding-top : 40px;
-    font-size : 14px;
-    color : white;
-}
 .my_row_class{
     padding-top : 15px;
 }
@@ -97,4 +87,9 @@
 }
 .my_custom_button{
     margin-top : 5px;
+}
+.my_head{
+    color : blue;
+    letter-spacing : .2em;
+    text-transform : uppercase;
 }

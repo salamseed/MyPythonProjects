@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+ Payment successful page
+{% endblock %}
+
+{% block title %}
+payment successful
+{% endblock %}
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        h1 {
+            font-size: 36px;
+            color: #008000;
+            text-transform: uppercase;
+        }
+        p {
+            font-size: 22px;
+            color: #333;
+        }
+        a {
+            color: #0066ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+{% block content %}
+    <div class="text-center">
+        <h1>Payment Successful</h1><br>
+        <i class="fa-sharp fa-regular fa-circle-check fa-2xl"></i><br><br><br>
+        <p>Thank you for your payment. Your transaction was successful.</p>
+        <p>You will receive a confirmation email shortly.</p>
+        <br><i class="fa-regular fa-face-smile fa-2xl"></i><br><br><br>
+        <a href="{% url 'ecommerceapp:AllCategories' %}" class="btn btn-primary">Back to homepage</a>
+    </div>
+{% endblock %}

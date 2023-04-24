@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+    Payment section
+{% endblock %}
+
+{% block title %}
+    payment-cartopia
+{% endblock %}
+
+{% block content %}
+<div>
+    <div class="text-center my_head">
+        Payment
+        total money to pay {{total}}
+    </div><br>
+</div>
+<form method="post" id="payment-form">
+    {% csrf_token %}
+    <div class="form">
+        <div class="form form_title">
+            <h5 class="text-center my_head">
+                Payment details
+            </h5>
+        </div><br><br>
+        <div class="container">
+            <div class="row mx-auto">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-right">
+                    <h4>
+                        <u>Address details</u>
+                    </h4><br>
+                    <input type="text" placeholder="Enter your name" name="name">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" placeholder="Address lane one" name="lane1"><br><br><br>
+                    <input type="text" placeholder="Address lane two" name="lane2">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" placeholder="Address lane three" name="lane3"><br><br><br>
+                    <input type="text" placeholder="Address lane four" name="lane4">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" placeholder="Post" name="post"><br><br><br>
+                    <input type="number" placeholder="Address PIN code" name="pin">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" placeholder="Landmark" name="landmark"><br><br><br>
+                    <input type="text" placeholder="District" name="district">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" placeholder="State" name="state"><br><br><br>
+                    <input type="number" placeholder="Mobile number" name="number">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="email" placeholder="E-Mail" name="email">
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-right">
+                    <h4>
+                        <u>Card details</u>
+                    </h4><br>
+                    <input type="text" placeholder="Enter your name in card" name="card_name"><br><br><br>
+                    <input type="date" placeholder="Enter DOB" name="DOB"><br><br><br>
+                    <input type="number" placeholder="Enter your card number" name="card"><br><br><br>
+                    <input type="number" placeholder="Enter CVV" name="CVV"><br><br><br>
+                    <p>Expire date</p><input type="date" placeholder="Expire date" name="exp"><br><br><br>
+                    <a href="{% url 'cartapp:payment_success' %}" class="btn btn-success">Make payment of {{total}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+{% endblock %}
